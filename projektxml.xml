@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<projekt data_utworzenia="2017-12-02" kraj="PL">
+   <miejsca>
+      <miejsce kolejnosc="1">
+        <wojewodztwo>Pomorskie</wojewodztwo>
+        <miasto>Gdańsk</miasto>
+        <nazwa>Kamienica przy Zajezdni</nazwa>
+        <zdanie>
+          Atrakcyjność jest <atrakcyjnosc>mała</atrakcyjnosc>/fantastyczna.
+        </zdanie>
+     </miejsce>
+     <miejsce kolejnosc="2">
+       <wojewodztwo>Pomorskie</wojewodztwo>
+       <miasto>Gdańsk</miasto>
+       <nazwa>Szpital Stoczniowy</nazwa>
+       <zdanie>
+          Atrakcyjność tego miejsca jest naprawdę <atrakcyjnosc>fantastyczna</atrakcyjnosc>
+        </zdanie>
+     </miejsce>
+     <miejsce kolejnosc="3">
+       <wojewodztwo>Pomorskie</wojewodztwo>
+       <miasto>Gdańsk</miasto>
+       <nazwa>Opuszczony Hotel dla Pielęgniarek</nazwa>
+       <zdanie><atrakcyjnosc>fantastyczna</atrakcyjnosc></zdanie>
+     </miejsce>
+     <miejsce kolejnosc="4">
+       <wojewodztwo>Pomorskie</wojewodztwo>
+       <miasto>Gdańsk</miasto>
+       <nazwa>Opuszczona Kamnienica Żabianka</nazwa>
+       <zdanie><atrakcyjnosc>duża</atrakcyjnosc></zdanie>
+     </miejsce>
+     <miejsce kolejnosc="5">
+       <wojewodztwo>Warmińsko-Mazurskie</wojewodztwo>
+       <miasto>Bartoszyce</miasto>
+       <nazwa>Opuszczony szpital psychiatryczny</nazwa>
+       <zdanie><atrakcyjnosc>niewielka</atrakcyjnosc></zdanie>
+     </miejsce>
+   </miejsca>
+   <znaleziono>gry_planszowe strzykawki dokumenty spis_pacjentów</znaleziono>
+   <zdjecia>
+     <zdjecie numer="1">
+       <sciezka>zdjecia/zdj1.jpg</sciezka>
+     </zdjecie>
+     <zdjecie numer="2">
+       <sciezka>zdjecia/zdj2.jpg</sciezka>
+     </zdjecie>
+     <zdjecie numer="3">
+       <sciezka>zdjecia/zdj3.jpg</sciezka>
+     </zdjecie>
+     <zdjecie numer="4">
+       <sciezka>zdjecia/zdj4.jpg</sciezka>
+     </zdjecie>
+   </zdjecia>
+   <linki>
+     <link adres="http://www.forgotten.pl/">
+       <nazwa_str>Forgotten</nazwa_str>
+     </link>
+     <link adres="https://pl.wikipedia.org/wiki/Urban_exploration">
+       <nazwa_str>Wikipedia</nazwa_str>
+     </link>
+     <link adres="https://www.facebook.com/historiazapomnianych/">
+       <nazwa_str>Facebook</nazwa_str>
+     </link>
+     <link adres="https://www.youtube.com/user/urbexhistory">
+       <nazwa_str>Youtube Urbex History</nazwa_str>
+     </link>
+   </linki>
+   <kontakt>
+     <dane>
+      <telefon>987654321</telefon>
+      <mail>s171869@student.pg.gda.pl</mail>
+     </dane>
+     <adres kraj="Polska">
+      <miasto>Gdańsk</miasto>
+      <kod_pocztowy>80-180</kod_pocztowy>
+      <ulica>Przykładowa</ulica>
+      <nr>7-D</nr>
+     </adres>
+   </kontakt>
+</projekt>

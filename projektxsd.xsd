@@ -1,0 +1,202 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+   <xsd:annotation>
+      <xsd:documentation xml:lang="pl">
+         XML Schema do pliku Moje Hobby w celach zaliczenia z przedmiotu HiH.
+      </xsd:documentation>
+   </xsd:annotation>
+  
+  <xsd:element name="projekt">
+  <xsd:complexType>
+    <xsd:group ref="projektgrupa"/>
+    <xsd:attribute name="data_utworzenia" type="xsd:date"/>
+    <xsd:attribute ref="kraj"/>
+  </xsd:complexType>
+  </xsd:element>
+
+  <xsd:group name="projektgrupa">
+    <xsd:sequence>
+      <xsd:element name="miejsca" type="miejscaTyp"/>
+      <xsd:element name="znaleziono" type="lista_przedmiotow_typ"/>
+      <xsd:element name="zdjecia" type="zdjeciaTyp"/>
+      <xsd:element name="linki" type="linkiTyp"/>
+      <xsd:element name="kontakt" type="kontaktTyp"/>
+    </xsd:sequence>
+  </xsd:group>
+
+  <xsd:complexType name="miejscaTyp">
+    <xsd:sequence>
+      <xsd:element name="miejsce" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:complexContent>
+            <xsd:extension base="miejsceinfo">
+              <xsd:sequence>
+                <xsd:element name="nazwa" type="xsd:string"/>
+                <xsd:element name="zdanie" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:complexType mixed="true">
+                    <xsd:sequence>
+                      <xsd:element name="atrakcyjnosc" type="atrakcyjnoscTyp" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+              <xsd:attribute name="kolejnosc" type="xsd:integer"/>
+            </xsd:extension>
+          </xsd:complexContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="zdjeciaTyp">
+    <xsd:sequence>
+      <xsd:element name="zdjecie" type="zdjecieTyp" minOccurs="4" maxOccurs="unbounded"/>
+    </xsd:sequence> 
+  </xsd:complexType>
+
+  <xsd:complexType name="zdjecieTyp">
+    <xsd:sequence>
+      <xsd:element name="sciezka" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute ref="numer"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="kontaktTyp">
+    <xsd:sequence>
+      <xsd:element name="dane" type="daneTyp"/>
+      <xsd:element name="adres" type="adresTyp"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="daneTyp">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="telefon">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+              <xsd:minInclusive value="100000000"/>
+              <xsd:maxInclusive value="999999999"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="telefonDom">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:pattern value="\d{2}-\d{7}"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:choice>
+        <xsd:element name="mail" type="xsd:string"/>
+     </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="adresTyp">
+    <xsd:sequence>
+      <xsd:element ref="miasto"/>
+      <xsd:element name="kod_pocztowy">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{2}-\d{3}"/>
+          </xsd:restriction>
+        </xsd:simpleType>        
+      </xsd:element>
+      <xsd:element name="ulica" type="xsd:string"/>
+      <xsd:element name="nr" type="dokladny_adres_Typ"/>
+    </xsd:sequence>
+    <xsd:attribute ref="kraj"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="linkiTyp">
+    <xsd:sequence>
+      <xsd:element name="link" minOccurs="4" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nazwa_str" type="nazwa_str_Typ"/>
+          </xsd:sequence>
+          <xsd:attribute name="adres" type="xsd:string"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:simpleType name="atrakcyjnoscTyp">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="niewielka"/>
+      <xsd:enumeration value="mała"/>
+      <xsd:enumeration value="średnia"/>
+      <xsd:enumeration value="duża"/>
+      <xsd:enumeration value="fantastyczna"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="nazwa_str_Typ">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="5"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="wojewodztwoTyp">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Pomorskie"/>
+      <xsd:enumeration value="Warmińsko-Mazurskie"/>
+      <xsd:enumeration value="Małopolskie"/>
+      <xsd:enumeration value="Wielkopolskie"/>
+      <xsd:enumeration value="Mazowieckie"/>
+      <xsd:enumeration value="Śląskie"/>
+      <xsd:enumeration value="Dolnośląskie"/>
+      <xsd:enumeration value="Kujawsko-Pomorskie"/>
+      <xsd:enumeration value="Zachodnio-Pomorskie"/>
+      <xsd:enumeration value="Opolskie"/>
+      <xsd:enumeration value="Świętokrzyskie"/>
+      <xsd:enumeration value="Łódzkie"/>
+      <xsd:enumeration value="Podlaskie"/>
+      <xsd:enumeration value="Podkarpackie"/>
+      <xsd:enumeration value="Lubelskie"/>
+      <xsd:enumeration value="Lubuskie"/>
+
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="dokladny_adres_Typ">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1}-[A-Z]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="lista_przedmiotow_typ">
+    <xsd:list itemType="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="krajTyp">
+    <xsd:union memberTypes="KRTyp KRAJTyp"/>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="KRTyp">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[A-Z]{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="KRAJTyp">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+
+  <xsd:complexType name="miejsceinfo">
+    <xsd:sequence>
+      <xsd:element name="wojewodztwo" type="wojewodztwoTyp"/>
+      <xsd:element ref="miasto"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:attribute name="numer" type="xsd:integer"/>
+  <xsd:element name="miasto" type="xsd:string"/>
+  <xsd:attribute name="kraj" type="krajTyp"/>
+
+
+</xsd:schema>  
+
